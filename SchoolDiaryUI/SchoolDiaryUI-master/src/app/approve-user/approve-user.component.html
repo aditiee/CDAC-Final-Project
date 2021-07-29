@@ -1,0 +1,64 @@
+
+            <div class="col-md-2 col-lg-10 pl-0" style="color:black;font-weight: bold;">
+              
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="container-lg">
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <div class="table-title" >
+                                
+                                    <h2><b><i class="fa fa-user-plus  " style="font-size:32px;" aria-hidden="true">  Pending Approvals</i></b></h2>
+                                </div>
+                                <table class="table " style="width:auto">
+                                
+                                    <thead style="background-color: #103453;color:#fff" >
+                                        
+                                            <tr>
+                                               
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>City</th>
+                                                <th>State</th>
+                                                <th>Country</th>
+                                                <th>Role_id</th>
+                                                <th>Email_id</th>
+                                                <th>Mobile_no</th>
+                                         
+                            
+                                            </tr>
+                                          
+                                      
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let user of users">
+                                            <tr *ngIf="user.isApproved ==0" (click)="onApproved(user)"
+                                                [ngClass]="{'isApproved':user.isApproved === 1,'isnotApproved':user.isApproved === 0}">
+                        
+                                               
+                                                <td>{{user.fName}}  {{user.lName}}</td>
+                                                <td>{{user.address}}</td>
+                                                <td>{{user.city}}</td>
+                                                <td>{{user.state}}</td>
+                                                <td>{{user.country}}</td>
+                                                <td>{{user.role_id}}</td>
+                                                <td>{{user.email_id}}</td>
+                                                <td>{{user.mobile_no}}</td>
+                                             
+                                            </tr>
+                                        </ng-container> 
+                                       
+                                       
+                                       
+                                    </tbody>
+                                    <td><button type="submit"  class="btn " style="color: white;" ></button></td>
+
+                                </table>
+                                <button (click)="Approve()" class="btn btn-primary">Approve</button>
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+
+
+                </div>
+

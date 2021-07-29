@@ -1,0 +1,193 @@
+
+    <div class="sticky-top">
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix ">
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope"></i><a href="mailto:contact@example.com">schoolediaryproject@gmail.com</a>
+        <i class="fa fa-phone"></i> +91 8989234653
+      </div>
+
+      <div class="social-links float-right">
+        <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" class="skype"><i class='fa fa-skype fa-lg' aria-hidden="true"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+ <!-- ======= Header ======= -->
+ <header id="header">
+  <div class="container ">
+
+      <div class="logo float-left">
+          <h1 class="text-light"><a href="index.html"><span>School Diary</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+          <ul>
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#team">Team</a></li>
+              <li class="Sign up"><a  routerLink="/register" routerLinkActive="active">Sign  Up</a></li>
+          <li class="Login"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+          </ul>
+      </nav><!-- .nav-menu -->
+
+  </div>
+</header><!-- End Header -->
+    </div>
+
+
+  <div class="container-fluid d-flex justify-content-center align-items-center m-5">
+    <div class="row ">
+    <div class="col">
+      <div class="alert alert-danger" *ngIf="display"role="alert">
+        Inavlid Credentials!
+      </div>
+        <h3 style="color: #103453;"><b>Login into Your Account</b></h3>
+        <form class="form" #registerForm="ngForm" novalidate>
+     <div class="row ">
+        <div class="col">
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" [(ngModel)]="user.email_id"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email_id" #email_id="ngModel"  required pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" placeholder="Enter email"
+                [class.is-invalid]="email_id.invalid && email_id.touched">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <span class="text-danger" *ngIf="(email_id.touched || registerForm.submitted) && email_id.errors">
+                  <div *ngIf="email_id.errors.required">
+                      Email is required!!
+                  </div>
+                  <div *ngIf="email_id.errors.pattern">
+                      Please use this format
+                      abc@email.com
+                  </div>
+              </span>
+              </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" [(ngModel)]="user.password" minlength="8" maxlength="15" class="form-control" id="exampleInputPassword1" pattern="^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$" name="pass" #pass="ngModel" placeholder="Password" required>
+                <span class="text-danger" *ngIf="(pass.touched || registerForm.submitted) && pass.errors">
+                  <div *ngIf="pass.errors.required">
+                     Password is required
+                  </div>
+                  <div *ngIf="pass.errors.pattern">
+                   <span> Password should have minimum 8<br>
+                      characters, at least 1 uppercase<br>letter,1
+                    lowercase letter and 1 number</span>
+                </div>
+                <div *ngIf="pass.errors.minlength">
+                  Password must be 8 character
+              </div>
+
+              </span>
+              </div>
+
+        </div>
+    </div>
+   
+    <div class="row ">
+        <div class="col">
+
+                <button type="submit" (click)="login()" style="background-color:  #103453;color: white;" class="btn">Login</button>
+
+
+        </div>
+        <div class="col-7">
+            <label style="color:#103453"><a routerLink="/forget" routerLinkActive="active"style="color: #103453;"><b>Forgot Password ?</b></a></label>
+
+        </div>
+
+    </div>
+    <div class="row ">
+        <div class="col">
+            <label style="color:#103453"><a  routerLink="/register" routerLinkActive="active" style="color:#103453"><b>Don't have account?</b></a></label>
+        </div>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>School Diary</h3>
+            <p>
+              A100 ABC Street <br>
+              Mumbai 535022, India<br><br>
+              <strong>Phone:</strong> +91 8989234653<br>
+              <strong>Email:</strong> schoolediaryproject@gmail.com<br>
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" class="skype"><i class='fa fa-skype ' aria-hidden="true"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li> <a href="#">Notice Board</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Attendance</a></li>
+              <li> <a href="#">Result</a></li>
+              <li> <a href="#">Feedback</a></li>
+              <li> <a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>School will re-open soon in mid-february.</p>
+                         <p>Communicate with us any time.
+                         We will be there 24/7</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>School Diary</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+

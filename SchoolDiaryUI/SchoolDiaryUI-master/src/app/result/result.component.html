@@ -1,0 +1,140 @@
+
+<div style="color:black;font-weight: bold;">
+
+    
+
+        <h3 style="color: #103453;"><b>Student's Marks</b></h3>
+        <table  *ngIf=isDisplay class="table alreadyExamTable">
+            <thead style="background-color: #103453;color: white;">
+    
+                <tr>
+                    <th  colspan="2" >Exams completed</th>
+                </tr>
+              <tr>
+                <th scope="col" >Date</th>
+                <th scope="col"  >Subject</th>
+          
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of alreadyRes">
+              
+                <td  >{{item.exam_date}}</td>
+                <td  >{{item.subject}}</td>
+             
+              </tr>
+             
+             
+            </tbody>
+            
+          </table>
+
+                <div *ngIf=isDisplay   class="row m-3 mt-5 d-flex justify-content-center align-items-center " >
+                    <div class="col">
+                        <label style="color: black;font-weight: bold;" >Date </label>
+                        <input [(ngModel)]="examDate" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                    </div>
+                    <div class="col">
+                        <label>Subject </label>
+                        <select [(ngModel)]="examSubject" class="form-control">
+                            <option selected value="0">Choose...</option>
+                            <option value="Englis">English</option>
+                            <option value="Mathematics">Mathematics
+                            </option>
+                            <option value="History">History</option>
+                            <option value="Geography">Geography
+                            </option>
+                            <option value="Economics">Economics</option>
+                            <option value="Science">Science</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Marathi">Marathi</option>
+                            <option value="Sanskrit">Sanskrit</option>
+
+                        </select>
+
+                    </div>
+                    <div class="col">
+                        <label >Max Marks </label>
+                        <input [(ngModel)]="maxMarks" type="text" class="form-control" >
+                    </div>
+
+                    
+              </div>
+
+              <div *ngIf=isDisplay  class="row m-3 mt-5 d-flex justify-content-center align-items-center ">
+                <div class="col">
+                 <table class="table">
+                     <thead style="background-color: #103453;color: white;">
+                       <tr>
+                         <th scope="col">Name</th>
+                         <th scope="col">Last</th>
+                         <th scope="col">obtained Marks</th>
+                        
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr *ngFor="let item of updateResult">
+                       
+                         <td>{{item.fName}}</td>
+                         <td>{{item.lName}}</td>
+                       <td *ngIf=isDisplay   style="width:12%"><input [(ngModel)]="item.obt_marks" type="text" size="5" class="form-control"> </td>
+                       </tr>
+                      
+                      
+                     </tbody>
+                     
+                   </table>
+                 </div>
+             </div>
+         
+             <div *ngIf=isP class="col">
+                <label style="color: white;">Marksheet</label>
+                <select class="form-control" id="#" [(ngModel)]="stu.user_id_student" (change)="getSMarksheet()">
+                  
+                    <option  *ngFor="let child of Student" [selected]="child.user_id_student" [value]="child.user_id_student">{{child.fName}}</option>
+                </select>
+            </div>
+        
+
+              <div *ngIf=isStu class="row m-3 mt-5 d-flex justify-content-center align-items-center ">
+                   <div class="col">
+                    <table class="table">
+                        <thead style="background-color: #103453;color: white;">
+                          <tr>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Exam Date</th>
+                            <th scope="col">Max Marks</th>
+                            <th scope="col">obtained Marks</th>
+                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of Result">
+                          
+                            <td>{{item.subject}}</td>
+                            <td>{{item.exam_date}}</td>
+                            <td>{{item.max_marks}}</td>
+                            <td>{{item.obt_marks}}</td>
+                          <td *ngIf=isDisplay   style="width:12%"><input type="hidden" size="5" class="form-control"> </td>
+                               
+                            
+                          </tr>
+                         
+                         
+                        </tbody>
+                        
+                      </table>
+                    </div>
+                </div>
+            
+
+        <div   *ngIf=isDisplay    class="row m-3  d-flex justify-content-end align-items-end" >
+            <div class="col-2 ">
+                <button (click)="classResUpdate()" type="submit" style="background-color: #103453;color: white; margin: 2px;"
+                    class="btn">Add </button>
+            </div>
+        </div>
+
+
+</div>
